@@ -23,9 +23,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.rules = void 0;
 var noJestMockAfterImportWalker = __importStar(require("./rules/no-jest-mock-after-import"));
-exports.default = {
-    rules: {
-        'no-only-tests': noJestMockAfterImportWalker
-    }
+exports.rules = {
+    'no-jest-mock-after-import': noJestMockAfterImportWalker
 };
