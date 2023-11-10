@@ -1,0 +1,17 @@
+{
+  "name": "eslint-plugin-no-jest-mock-after-import",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vbarzana/eslint-plugin-no-jest-mock-after-import.git",
+  "author": "Victor Antonio Barzana Crespo <viticoinf@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "tsc",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "eslint": "8.53.0",
+    "tslint": "6.1.3",
+    "typescript": "5.2.2"
+  }
+}
