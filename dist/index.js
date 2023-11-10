@@ -23,28 +23,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Rule = void 0;
-const Lint = __importStar(require("tslint"));
-class Rule extends Lint.Rules.AbstractRule {
-    apply(sourceFile) {
-        return this.applyWithWalker(new NoJestMockAfterImportWalker(sourceFile, this.getOptions()));
+var noJestMockAfterImportWalker = __importStar(require("./rules/no-jest-mock-after-import"));
+exports.default = {
+    rules: {
+        'no-only-tests': noJestMockAfterImportWalker
     }
-}
-exports.Rule = Rule;
-Rule.FAILURE_STRING = 'jest.mock should be placed before any import statements';
-class NoJestMockAfterImportWalker extends Lint.RuleWalker {
-    constructor() {
-        super(...arguments);
-        this.importStatementFound = false;
-    }
-    visitImportDeclaration(node) {
-        this.importStatementFound = true;
-        super.visitImportDeclaration(node);
-    }
-    visitCallExpression(node) {
-        if (this.importStatementFound && node.expression.getText() === 'jest.mock') {
-            this.addFailureAtNode(node, Rule.FAILURE_STRING);
-        }
-        super.visitCallExpression(node);
-    }
-}
+};
